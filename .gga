@@ -1,0 +1,32 @@
+# Gentleman Guardian Angel Configuration
+# https://github.com/Gentleman-Programming/gentleman-guardian-angel
+
+# AI Provider for code review
+# Options: claude, gemini, codex, opencode, ollama:<model>
+PROVIDER="ollama:deepseek-v4-flash:cloud"
+
+# File patterns to review (comma-separated globs)
+FILE_PATTERNS="*.ts,*.tsx,*.js,*.jsx"
+
+# Patterns to exclude
+EXCLUDE_PATTERNS="*.test.*,*.spec.*,*.d.ts,dist/*,build/*,node_modules/*"
+
+# Rules file
+RULES_FILE="AGENTS.md"
+
+# Strict mode (fail on ambiguous AI responses)
+STRICT_MODE="true"
+
+# Review timeout in seconds
+TIMEOUT="300"
+
+# OpenCode provider: optional reasoning effort / variant
+# Examples: minimal, low, medium, high, max
+# OPENCODE_VARIANT="high"
+
+# OpenCode provider: optional agent profile
+# OPENCODE_AGENT="gga-reviewer"
+
+# Base branch for --pr-mode (auto-detects main/master/develop if empty)
+# Default: auto-detect
+# PR_BASE_BRANCH="main"
