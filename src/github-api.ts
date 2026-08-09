@@ -1,6 +1,6 @@
-import type { UserProfile, Repo, CachedResponse } from './types';
-import { CACHE_TTL_MS } from './types';
-import { API_BASE_URL, TOP_REPOS_COUNT } from './config';
+import type { UserProfile, Repo, CachedResponse } from './types.js';
+import { CACHE_TTL_MS } from './types.js';
+import { API_BASE_URL, TOP_REPOS_COUNT } from './config.js';
 
 export async function fetchUserProfile(username: string): Promise<UserProfile> {
   const cacheKey = `user:${username}`;

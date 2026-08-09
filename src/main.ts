@@ -1,7 +1,7 @@
-import { fetchUserProfile, fetchTopRepos } from './github-api';
-import { renderProfile, renderError, renderLoading } from './profile-card';
-import { renderRepos, renderEmptyRepos } from './repo-list';
-import { saveFavorite, removeFavorite, isFavorite, renderFavorites } from './favorites';
+import { fetchUserProfile, fetchTopRepos } from './github-api.js';
+import { renderProfile, renderError, renderLoading } from './profile-card.js';
+import { renderRepos, renderEmptyRepos } from './repo-list.js';
+import { saveFavorite, removeFavorite, isFavorite, renderFavorites } from './favorites.js';
 
 function clearChildren(container: HTMLElement): void {
   while (container.firstChild) {

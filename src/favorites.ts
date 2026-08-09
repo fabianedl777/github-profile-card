@@ -1,4 +1,4 @@
-import { createElement, clearChildren } from './utils/dom';
+import { createElement, clearChildren } from './utils/dom.js';
 
 const FAVORITES_KEY = 'favorites';
 

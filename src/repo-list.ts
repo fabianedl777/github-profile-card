@@ -1,5 +1,5 @@
-import type { Repo } from './types';
-import { createElement, clearChildren } from './utils/dom';
+import type { Repo } from './types.js';
+import { createElement, clearChildren } from './utils/dom.js';
 
 export function renderRepos(container: HTMLElement, repos: Repo[]): void {
   clearChildren(container);

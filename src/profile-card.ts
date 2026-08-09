@@ -1,5 +1,5 @@
-import type { UserProfile } from './types';
-import { createElement, clearChildren } from './utils/dom';
+import type { UserProfile } from './types.js';
+import { createElement, clearChildren } from './utils/dom.js';
 
 export function renderProfile(
   container: HTMLElement,
