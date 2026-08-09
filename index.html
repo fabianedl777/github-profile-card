@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GitHub Profile Card</title>
+  <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+  <div class="app">
+    <header class="app__header">
+      <h1 class="app__title">GitHub Profile Card</h1>
+      <form class="search" id="search-form">
+        <input
+          type="text"
+          class="search__input"
+          id="search-input"
+          placeholder="Enter GitHub username..."
+          aria-label="GitHub username"
+          autocomplete="off"
+        >
+        <button type="submit" class="search__button">Search</button>
+      </form>
+    </header>
+
+    <main class="app__main">
+      <section class="profile" id="profile-container" aria-live="polite">
+        <p class="profile__empty">Search for a GitHub user to see their profile.</p>
+      </section>
+
+      <section class="repos" id="repos-container" aria-live="polite"></section>
+    </main>
+
+    <aside class="favorites" id="favorites-container">
+      <h2 class="favorites__title">Favorites</h2>
+      <ul class="favorites__list" id="favorites-list"></ul>
+      <p class="favorites__empty" id="favorites-empty">No favorites yet</p>
+    </aside>
+  </div>
+
+  <script type="module" src="dist/main.js"></script>
+</body>
+</html>
