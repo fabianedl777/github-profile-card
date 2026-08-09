@@ -2,6 +2,7 @@ import { fetchUserProfile, fetchTopRepos } from './github-api.js';
 import { renderProfile, renderError, renderLoading } from './profile-card.js';
 import { renderRepos, renderEmptyRepos } from './repo-list.js';
 import { saveFavorite, removeFavorite, isFavorite, renderFavorites } from './favorites.js';
+import { initTheme, toggleTheme } from './theme.js';
 
 function clearChildren(container: HTMLElement): void {
   while (container.firstChild) {
@@ -87,6 +88,8 @@ function handleSearch(username: string, ctx: SearchContext): void {
 }
 
 function init(): void {
+  initTheme();
+
   const searchForm = document.getElementById('search-form');
   const searchInput = document.getElementById('search-input') as HTMLInputElement;
   const profileContainer = document.getElementById('profile-container');
@@ -107,6 +110,16 @@ function init(): void {
   });
 
   renderFavorites(favoritesContainer, search, removeFav);
+
+  const themeToggle = document.getElementById('theme-toggle');
+  if (themeToggle) {
+    themeToggle.addEventListener('click', () => {
+      const next = toggleTheme();
+      themeToggle.textContent = next === 'dark' ? '🌙' : '☀️';
+    });
+    const current = document.documentElement.getAttribute('data-theme');
+    themeToggle.textContent = current === 'dark' ? '🌙' : '☀️';
+  }
 }
 
 if (document.readyState === 'loading') {
