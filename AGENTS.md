@@ -58,7 +58,7 @@ Static TypeScript frontend deployed to GitHub Pages. Fetches public GitHub user 
 
 ## Rules for GGA Review
 
-1. **No `any` type** — use `unknown` with type guards instead
+1. **No `any` type** — use `unknown` with type guards instead. Exception: `any[]` allowed in generic constraints for utility functions (e.g., debounce) where `unknown[]` breaks type inference
 2. **No `console.log` in production code** — use typed error handlers
 3. **No inline styles** — all styles in CSS files
 4. **No hardcoded API URLs** — use a config module

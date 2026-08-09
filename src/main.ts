@@ -3,6 +3,9 @@ import { renderProfile, renderError, renderLoading } from './profile-card.js';
 import { renderRepos, renderEmptyRepos } from './repo-list.js';
 import { saveFavorite, removeFavorite, isFavorite, renderFavorites } from './favorites.js';
 import { initTheme, toggleTheme } from './theme.js';
+import { debounce } from './utils/debounce.js';
+
+const SEARCH_DEBOUNCE_DELAY_MS = 500;
 
 function clearChildren(container: HTMLElement): void {
   while (container.firstChild) {
@@ -104,9 +107,16 @@ function init(): void {
   const search = (u: string) => handleSearch(u, ctx);
   const removeFav = (u: string) => handleRemoveFavorite(u, ctx);
 
+  const debouncedSearch = debounce(search, SEARCH_DEBOUNCE_DELAY_MS);
+
   searchForm.addEventListener('submit', (e: Event) => {
     e.preventDefault();
+    debouncedSearch.cancel();
     search(searchInput.value);
+  });
+
+  searchInput.addEventListener('input', () => {
+    debouncedSearch(searchInput.value);
   });
 
   renderFavorites(favoritesContainer, search, removeFav);
